@@ -17,6 +17,7 @@ namespace CapaPresentacion
         public CRUD()
         {
             InitializeComponent();
+            MostrarProductos();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace CapaPresentacion
 
         private void CRUD_Load(object sender, EventArgs e)
         {
-            MostrarProductos();
+            
         }
     }
 }
