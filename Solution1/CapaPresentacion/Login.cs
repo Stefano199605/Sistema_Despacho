@@ -38,7 +38,8 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            CRUD crud = new CRUD();
+            crud.ShowDialog();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
