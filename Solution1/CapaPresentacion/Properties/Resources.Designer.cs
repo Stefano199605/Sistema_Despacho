@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Properties {
+namespace SistemaDespacho.Properties {
     using System;
     
     

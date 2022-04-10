@@ -1,5 +1,5 @@
 ﻿
-namespace CapaPresentacion
+namespace SistemaDespacho
 {
     partial class CRUD
     {
