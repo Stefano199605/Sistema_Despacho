@@ -29,7 +29,35 @@ namespace CapaPresentacion
         {
             
         }
-       
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {   
+            //CERRAR EL FORM
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            //MIMIMIZAR
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            //Hacer visible la contraseña usando un checkbox
+            if (checkBox1.Checked == true)
+            {
+                txtContraseña.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtContraseña.UseSystemPasswordChar = true;
+            }
+        }
     }
 }
