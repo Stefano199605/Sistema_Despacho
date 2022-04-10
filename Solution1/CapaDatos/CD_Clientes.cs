@@ -20,13 +20,18 @@ namespace CapaDatos
         public DataTable Mostrar()
         {
             comando.Connection = con.AbrirConexion();
-            comando = new OracleCommand("SP_SELECT_CLIENTE");
+            comando = new OracleCommand("SP_SELECT_CLIENTE",comando.Connection);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.Add("P_CURSOR",OracleDbType.RefCursor).Direction=ParameterDirection.Output;
+            comando.Parameters.Add("P_CURSOR", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             con.CerrarConexion();
             return tabla;
+            
+            
+            
+            
+            
         }
         public void Insertar(char dni, string nombre,string apellido,string email, int telefono)
         {
