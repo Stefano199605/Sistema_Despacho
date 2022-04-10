@@ -73,14 +73,21 @@ namespace CapaPresentacion
 
         private void Login_MouseDown(object sender, MouseEventArgs e)
         {
+            //EVENTO DE MOVER LA VENTANA DEL FORM
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            //EVENTO DE MOVER LA VENTANA DEL PANEL
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
