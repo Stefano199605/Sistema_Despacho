@@ -21,7 +21,7 @@ namespace CapaDatos
             comando.Connection = con.AbrirConexion();
             comando = new OracleCommand("SP_SELECT_CLIENTE");
             comando.CommandType = CommandType.StoredProcedure;
-
+            
         }
     }
 }
