@@ -52,7 +52,20 @@ namespace CapaDatos
             comando.ExecuteNonQuery();
             con.CerrarConexion();
         }
+        public void Editar(char dni, string nombre, string apellido,string email, int telefono)
+        {
+            comando.Connection = con.AbrirConexion();
+            comando = new OracleCommand("SP_INSERT_CLIENTE");
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Add("P_DNI", OracleDbType.Char).Value = dni;
+            comando.Parameters.Add("P_NOMBRE", OracleDbType.Varchar2).Value = nombre;
+            comando.Parameters.Add("P_APELLIDO", OracleDbType.Varchar2).Value = apellido;
+            comando.Parameters.Add("P_EMAIL", OracleDbType.Varchar2).Value = email;
+            comando.Parameters.Add("P_TELEFONO", OracleDbType.Int64).Value = telefono;
+            comando.ExecuteNonQuery();
+            con.CerrarConexion();
 
+        }
 
 
     }
