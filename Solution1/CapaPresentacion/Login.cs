@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,12 +14,23 @@ namespace CapaPresentacion
     public partial class Login : Form
     {
         
+        
 
         public Login()
         {
             InitializeComponent();
         }
 
+        private void btnConexion_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnDesconectar_Click(object sender, EventArgs e)
+        {
+            
+        }
+       
         
     }
 }
