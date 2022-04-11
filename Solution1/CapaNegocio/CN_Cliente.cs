@@ -20,15 +20,15 @@ namespace CapaNegocio
 
         public void InsertarClient(string dni,string nombre,string apellido,string email,string telefono)
         {
-            objectoCD.Insertar(Convert.ToChar(dni), nombre, apellido, email, Convert.ToInt32(telefono));
+            objectoCD.Insertar(Convert.ToInt32(dni), nombre, apellido, email, Convert.ToInt32(telefono));
         }
         public void EditarClient(string dni,string nombre,string apellido,string email,string telefono)
         {
-            objectoCD.Editar(Convert.ToChar(dni), nombre, apellido, email, Convert.ToInt32(telefono));
+            objectoCD.Editar(Convert.ToInt32(dni), nombre, apellido, email, Convert.ToInt32(telefono));
         }
         public void EliminarClient(string dni)
         {
-            objectoCD.Eliminar(Convert.ToChar(dni));
+            objectoCD.Eliminar(Convert.ToInt32(dni));
         }
 
     }

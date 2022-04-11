@@ -20,9 +20,9 @@ namespace CapaDatos
         public DataTable Mostrar()
         {
             comando.Connection = con.AbrirConexion();
-            comando = new OracleCommand("SP_SELECT_CLIENTE",comando.Connection);
+            comando = new OracleCommand("seleccionarCliente", comando.Connection);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.Add("P_CURSOR", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+            comando.Parameters.Add("registros", OracleDbType.RefCursor).Direction=ParameterDirection.Output;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
             con.CerrarConexion();
@@ -33,40 +33,43 @@ namespace CapaDatos
             
             
         }
-        public void Insertar(char dni, string nombre,string apellido,string email, int telefono)
+        public void Insertar(int dni, string nombre,string apellido,string email, int telefono)
         {
             comando.Connection = con.AbrirConexion();
-            comando = new OracleCommand("SP_INSERT_CLIENTE");
+            comando = new OracleCommand("SP_insertarCliente",comando.Connection);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.Add("P_DNI", OracleDbType.Char).Value = dni;
-            comando.Parameters.Add("P_NOMBRE", OracleDbType.Varchar2).Value = nombre;
-            comando.Parameters.Add("P_APELLIDO", OracleDbType.Varchar2).Value = apellido;
-            comando.Parameters.Add("P_EMAIL", OracleDbType.Varchar2).Value = email;
-            comando.Parameters.Add("P_TELEFONO", OracleDbType.Int64).Value = telefono;
+            comando.Parameters.Add("p_dni", OracleDbType.Varchar2).Value = dni;
+            comando.Parameters.Add("p_nombre", OracleDbType.Varchar2).Value = nombre;
+            comando.Parameters.Add("p_apellido", OracleDbType.Varchar2).Value = apellido;
+            comando.Parameters.Add("p_email", OracleDbType.Varchar2).Value = email;
+            comando.Parameters.Add("p_telefono", OracleDbType.Int64).Value = telefono;
+            comando.Parameters.Add("p_result", OracleDbType.Varchar2).Value = ParameterDirection.Output;
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             con.CerrarConexion();
             
         }
-        public void Eliminar(char dni)
+        public void Eliminar(int dni)
         {
             comando.Connection = con.AbrirConexion();
-            comando = new OracleCommand("SP_DELETE_CLIENTE");
+            comando = new OracleCommand("sp_eliminarCliente", comando.Connection);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.Add("P_DNI", OracleDbType.Char).Value = dni;
+            comando.Parameters.Add("p_dni", OracleDbType.Varchar2).Value = dni;
+            comando.Parameters.Add("p_result", OracleDbType.Varchar2).Value = ParameterDirection.Output;
             comando.ExecuteNonQuery();
             con.CerrarConexion();
         }
-        public void Editar(char dni, string nombre, string apellido,string email, int telefono)
+        public void Editar(int dni, string nombre, string apellido,string email, int telefono)
         {
             comando.Connection = con.AbrirConexion();
-            comando = new OracleCommand("SP_INSERT_CLIENTE");
+            comando = new OracleCommand("sp_updateCliente",comando.Connection);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.Add("P_DNI", OracleDbType.Char).Value = dni;
-            comando.Parameters.Add("P_NOMBRE", OracleDbType.Varchar2).Value = nombre;
-            comando.Parameters.Add("P_APELLIDO", OracleDbType.Varchar2).Value = apellido;
-            comando.Parameters.Add("P_EMAIL", OracleDbType.Varchar2).Value = email;
-            comando.Parameters.Add("P_TELEFONO", OracleDbType.Int64).Value = telefono;
+            comando.Parameters.Add("p_dni", OracleDbType.Varchar2).Value = dni;
+            comando.Parameters.Add("p_nombre", OracleDbType.Varchar2).Value = nombre;
+            comando.Parameters.Add("p_apellido", OracleDbType.Varchar2).Value = apellido;
+            comando.Parameters.Add("p_email", OracleDbType.Varchar2).Value = email;
+            comando.Parameters.Add("p_telefono", OracleDbType.Int64).Value = telefono;
+            comando.Parameters.Add("p_result", OracleDbType.Varchar2).Value = ParameterDirection.Output;
             comando.ExecuteNonQuery();
             con.CerrarConexion();
 
